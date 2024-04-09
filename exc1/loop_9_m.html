@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let max_value = Number.MIN_SAFE_INTEGER;
+        let min_value = Number.MAX_SAFE_INTEGER;
+
+        while (true) {
+            let number = parseInt(prompt("Enter a number (zero or negative to stop):"));
+            if (number <= 0)
+                break;
+
+            max_value = Math.max(max_value, number);
+            min_value = Math.min(min_value, number);
+        }
+
+        alert('The maximum value is ' + max_value);
+        alert('The minimum value is ' + min_value);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let count = 1;
+        let randomNum = parseInt(Math.random() * 100);
+
+        let guess = prompt("enter your guess: ");
+        let startTime = new Date();
+        while (guess != randomNum) {
+            if (guess < randomNum) {
+                guess = prompt("wrong! you need to go higher!: ");
+            }
+            else {
+                guess = prompt("wrong! you need to go lower!: ");
+            }
+
+            count++;
+        }
+
+        let endTime = new Date();
+        let elapsedTime = (endTime - startTime) / 1000;
+        alert(count + " Attempts in " + elapsedTime + " seconds ");
+    </script>
+</body>
+
+</html>
