@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let sum = 0
+        function Find_similiar(array, array2) {
+            for (let i = 0; i < array.length; i++) {
+                for (let j = 0; j < array2.length; j++) {
+                    if (array[i] == array2[j]) {
+                        sum += 1
+                    }
+                }
+            }
+            return sum
+        }
+        console.log(Find_similiar([4, 7, 56, 222], [222, 45, 7, 12]))
+    </script>
+</body>
+
+</html>

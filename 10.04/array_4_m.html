@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function UniqeSum(arr) {
+            let count = {};
+
+            for (let i = 0; i < arr.length; i++) {
+                count[arr[i]] ? count[arr[i]]++ : count[arr[i]] = 1;
+            }
+            let sum = 0;
+
+            for (let num in count) {
+                if (count.hasOwnProperty(num)) {
+                    if (count[num] === 1) {
+                        sum++
+                    }
+                }
+            }
+            return sum;
+        }
+        console.log(UniqeSum([1, 6, 7, 6, 8, 1]));
+
+
+    </script>
+</body>
+
+</html>
