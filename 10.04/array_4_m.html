@@ -17,12 +17,11 @@
             }
             let sum = 0;
 
-            for (let num in count) {
-                if (count.hasOwnProperty(num)) {
-                    if (count[num] === 1) {
-                        sum++
-                    }
+            for (let i in count) {
+                if (count[i] == 1) {
+                    sum++
                 }
+
             }
             return sum;
         }
