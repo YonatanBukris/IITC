@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const person = {
+            firstName: "John",
+            lastName: "Deer",
+            age: 33,
+        }
+        const person1 = {
+            firstName: "eyt",
+            lastName: "buk",
+            age: 44,
+        }
+        const person2 = {
+            firstName: "yonatan",
+            lastName: "david",
+            age: 55,
+        }
+
+        const persons = [person, person1, person2]
+
+        function averageAge(array) {
+            let sum = 0
+            for (let i = 0; i < array.length; i++) {
+                sum += array[i].age
+            }
+            let average = sum / array.length
+            return average
+        }
+
+        console.log(averageAge(persons))
+
+        function oldestPerson(array) {
+            let oldestPerson = 0
+            for (let i = 0; i < array.length; i++) {
+                if (array[i].age > oldestPerson) {
+                    oldestPerson = array[i].age
+                }
+
+            }
+            console.log(oldestPerson)
+            for (let i = 0; i < array.length; i++) {
+                if (array[i].age == oldestPerson) {
+                    console.log(i)
+                    console.log(array[i].firstName)
+                }
+            }
+        }
+
+        oldestPerson(persons)
+
+    </script>
+</body>
+
+</html>
