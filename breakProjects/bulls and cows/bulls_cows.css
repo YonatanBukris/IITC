@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
+    /* Set background color */
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    align-items: center;
+    margin-top: 20px;
+    display: none;
+
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+    font-size: 24px;
+    background-color: bisque;
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 8px;
+    border-color: black;
+
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+}
+
+.bb {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgb(215, 225, 28);
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.bb:hover {
+    background-color: #e0e0e0;
+}
+
+input[type="button"] {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #e0e0e0;
+}
+
+.result {
+    margin-top: 20px;
+}
+
+.inner-container {
+    display: flex;
+}
+
+.bull {
+    color: green;
+    padding-right: 1rem;
+}
+
+.cow {
+    color: blue;
+    align-items: end;
+}
+
+.number {
+    color: red;
+
+}

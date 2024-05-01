@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="id1">hello dom!</div>
+    <label for="num1">insert number</label>
+    <input type="number" id="num1" />
+    <br />
+    <label for="num2">insert number</label>
+    <input type="number" id="num2" />
+    <br />
+    <button onclick="addNumbers()">+</button>
+    <button onclick="pahotNumbers()">-</button>
+    <button onclick="kafulNumbers()">*</button>
+    <button onclick="helkeyNumbers()">/</button>
+    <button onclick="showHistory()">Show history</button>
+    <p id="result"></p>
+    <table>
+
+    </table>
+
+
+    <script>
+        const elemNum1 = document.querySelector('#num1');
+        const elemNum2 = document.querySelector('#num2');
+        const elemresult = document.querySelector('#result');
+        const elemHistoryTable = document.querySelector("table");
+        let history = [];
+
+        function showHistory() {
+            elemHistoryTable.innerHTML = "<tr><th>num1</th><th>operation</th><th>num2</th><th>result</th></tr > ";
+            for (let obj of history) {
+                const elemRowInTable = `<tr><td>${obj.num1}</td><td>${obj.operation}</td><td>${obj.num2}</td><td>${obj.result}</td></tr>`;
+                elemHistoryTable.innerHTML += elemRowInTable;
+            }
+        }
+
+
+
+        function addNumbers() {
+            const result = elemNum1.valueAsNumber + elemNum2.valueAsNumber;
+            elemresult.innerText = result;
+            addHistory("+", result)
+        }
+        function pahotNumbers() {
+            const result = elemNum1.valueAsNumber - elemNum2.valueAsNumber;
+            elemresult.innerText = result;
+            addHistory("-", result)
+        }
+        function kafulNumbers() {
+            const result = elemNum1.valueAsNumber * elemNum2.valueAsNumber;
+            elemresult.innerText = result;
+            addHistory("*", result)
+        }
+        function helkeyNumbers() {
+            const result = elemNum1.valueAsNumber / elemNum2.valueAsNumber;
+            elemresult.innerText = result;
+            addHistory("/", result)
+        }
+        function addHistory(operation, result) {
+            const obj = {
+                num1: elemNum1.valueAsNumber,
+                num2: elemNum2.valueAsNumber,
+                operation: operation,
+                result: result,
+            };
+            history.push(obj)
+        }
+
+    </script>
+</body>
+
+</html>

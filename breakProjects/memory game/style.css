@@ -1,0 +1,92 @@
+.boardGame {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.card {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #eee;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+}
+
+.topper {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.newGame {
+    /* Optional styles for the button */
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cover {
+    position: absolute;
+    /* Position the cover absolutely */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+
+}
+
+.revealed .cover {
+    display: none;
+
+}
+
+.covers-hidden .cover {
+    display: none;
+}
+
+.card {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #eee;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+#win-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
