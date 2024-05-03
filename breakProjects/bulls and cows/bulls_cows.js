@@ -31,7 +31,7 @@ function generateComputerNumber() {
             number.push(randomNumberHolder);
 
     }
-    console.log(number);
+    console.log("the code is " + number);
     return number; // creating array with 4 random numbers
 }
 
@@ -56,7 +56,10 @@ function checkGuess(computerNumber, playerGuess) {
 
     return { bulls, cows }; // checking for bulls or cows
 }
-
+/**
+ * 
+ * @param {*} btnId 
+ */
 function incrementValue(btnId) {
     let button = document.getElementById(btnId);
     let value = parseInt(button.innerText);

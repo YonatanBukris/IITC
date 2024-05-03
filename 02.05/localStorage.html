@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>localStorage</h1>
+    <button onclick="clickButton()">click</button>
+    <button onclick="showResult()">show</button>
+    <button onclick="clearData()">clear</button>
+    <div id="result"></div>
+    <script>
+        let counter = 0;
+        function clickButton() {
+            counter++;
+            console.log(counter)
+            localStorage.setItem("data", counter);
+
+        }
+        function showResult() {
+            document.getElementById("result").textContent = localStorage.getItem("data") || 0;
+        }
+
+        function clearData() {
+            localStorage.removeItem("data");
+            document.getElementById("result").textContent = '';
+        }
+    </script>
+</body>
+
+</html>
