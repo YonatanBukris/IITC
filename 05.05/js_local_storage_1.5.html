@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local_storage_1.5</title>
+</head>
+
+<body>
+    <button onclick="counter1()">increment</button>
+    <button onclick="counter2()">increment2</button>
+    <p id="element"></p>
+    <p id="element_2"></p>
+
+    <script>
+        let counter = localStorage.getItem('counter') || 0;
+        let counter_2 = localStorage.getItem('counter_2') || 0;
+        function counter1() {
+            counter++
+            localStorage.setItem('counter', counter);
+            document.getElementById("element").textContent = counter;
+        }
+        function counter2() {
+            counter_2++
+            localStorage.setItem('counter_2', counter_2);
+            document.getElementById("element_2").textContent = counter_2;
+        }
+        document.getElementById("element").textContent = counter;
+        document.getElementById("element_2").textContent = counter_2;
+    </script>
+</body>
+
+</html>

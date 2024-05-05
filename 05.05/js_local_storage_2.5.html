@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_local_storage_2.5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h2>localStorage</h2>
+
+    <label for="dataInput">ToDo:</label>
+    <input type="text" id="dataInput" />
+    <button onclick="save()">add ToDo</button>
+    <button onclick="clearArray()">clear</button>
+
+
+    <ul id="todo"></ul>
+    <script>
+        let todoArray = JSON.parse(localStorage.getItem('data')) || [];
+
+        function save() {
+            let data = document.getElementById("dataInput").value;
+            todoArray.push(data)
+            localStorage.setItem('data', JSON.stringify(todoArray));
+            displayTodo();
+            document.getElementById("dataInput").value = "";
+        }
+
+        function displayTodo() {
+            let todoList = document.getElementById("todo");
+            todoList.innerHTML = "";
+
+            todoArray.forEach(function (item, index) {
+                let li = document.createElement("li");
+                li.textContent = item;
+                todoList.appendChild(li);
+                li.setAttribute("data-index", index);
+                li.addEventListener("click", paintGreen);
+
+
+            });
+        }
+
+        function paintGreen(event) {
+            let index = event.target.getAttribute("data-index");
+            let todoItem = todoArray[index];
+            let element = event.target;
+
+            // Toggle the 'green' property
+            //todoItem.green = !todoItem.green;
+
+            if (todoItem.green) {
+                // If the item is green, add the 'green-text' class
+                element.classList.remove("green-text");
+
+            } else {
+                element.classList.add("green-text");
+
+            }
+
+            localStorage.setItem('data', JSON.stringify(todoArray));
+        }
+
+
+
+
+        function clearArray() {
+            todoArray.splice(0, todoArray.length)
+            localStorage.setItem('data', JSON.stringify(todoArray));
+            displayTodo();
+        }
+
+        displayTodo();
+
+    </script>
+</body>
+
+</html>

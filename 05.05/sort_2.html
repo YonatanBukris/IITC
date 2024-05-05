@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sort_2</title>
+</head>
+
+<body>
+    <script>
+        function findMin(array) {
+            let minNum = array[0]
+            for (let i = 1; i < array.length; i++) {
+                if (array[i] < minNum) {
+                    minNum = array[i];
+                }
+            }
+            return minNum
+        }
+        function sortArray(array) {
+            let newArray = []
+            for (let i = 1; array.length > 0; i++) {
+                let min = findMin(array)
+                newArray.push(min)
+                array.splice(array.indexOf(min), 1)
+            }
+            return newArray
+        }
+
+        console.log(sortArray([5, 7, 2, 4, 1, 9, 23]))
+    </script>
+
+
+</body>
+
+</html>
