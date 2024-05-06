@@ -34,27 +34,24 @@
             let todoList = document.getElementById("todo");
             todoList.innerHTML = "";
 
-            todoArray.forEach(function (item, index) {
+            todoArray.forEach(function (item) {
                 let li = document.createElement("li");
                 li.textContent = item;
+                li.addEventListener("click", paintGreen); // pass the event listener function directly
                 todoList.appendChild(li);
-                li.setAttribute("data-index", index);
-                li.addEventListener("click", paintGreen);
-
-
             });
         }
 
+
         function paintGreen(event) {
-            let index = event.target.getAttribute("data-index");
-            let todoItem = todoArray[index];
+            // let index = event.target.getAttribute("data-index");
+            //let todoItem = todoArray[index];
             let element = event.target;
 
-            // Toggle the 'green' property
-            //todoItem.green = !todoItem.green;
 
-            if (todoItem.green) {
-                // If the item is green, add the 'green-text' class
+
+            if (element.classList.contains("green-text")) {
+
                 element.classList.remove("green-text");
 
             } else {
