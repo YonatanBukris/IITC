@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="handleButtonClick(true)">success</button>
+    <button onclick="handleButtonClick(false)">failure</button>
+    <script>
+        const error = false;
+        const resolveHandler = val => {
+            setTimeout(() => console.log(`got this from resolve : ${val}`), 2000);
+        };
+        const rejectHandler = err => {
+            setTimeout(() => console.log(`got this from reject : ${err}`), 3000);
+        };
+        const handleButtonClick = (shouldResolve) => {
+            const p = new Promise((resolve, reject) => {
+                if (shouldResolve) {
+                    resolve("success");
+                } else {
+                    reject("failure");
+                }
+            });
+            p.then(resolveHandler).catch(rejectHandler);
+        };
+
+    </script>
+</body>
+
+</html>

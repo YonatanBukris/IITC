@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const resolveHandler = val => {
+            console.log(`got this from resolve: ${val}`);
+        };
+        const rejectHandler = err => {
+            console.log(`got this from reject: ${err}`);
+        };
+
+        function isEvenAsync(value) {
+            const p = new Promise((resolve, reject) => {
+                if (typeof value !== 'number') {
+                    reject("validation error");
+                } else if (value % 2 === 0) {
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            });
+            p.then(resolveHandler).catch(rejectHandler);
+        };
+
+        isEvenAsync(10);
+        isEvenAsync(3);
+        isEvenAsync('hello'); 
+    </script>
+</body>
+
+</html>
