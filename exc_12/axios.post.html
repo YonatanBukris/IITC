@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>POST</h2>
+    <form id="PostForm">
+      <label for="postTitle">Title</label>
+      <input type="text" id="postTitle" name="postTitle" required /><br /><br />
+
+      <label for="postViews">Views</label>
+      <input type="text" id="postViews" name="postViews" required /><br /><br />
+
+      <button onclick="postPost(event)" type="submit">Post New</button>
+      <p id="response"></p>
+    </form>
+    <h2>Remove</h2>
+    <form id="removeForm">
+      <label for="removeId">Id</label>
+      <input type="text" id="removeId" name="removeId" required /><br /><br />
+      <button onclick="removePost(event)" type="submit">Remove Post</button>
+    </form>
+
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script>
+      const url = "http://localhost:8001/posts";
+
+      function postPost(event) {
+        event.preventDefault();
+        const responseElement = document.getElementById("response");
+        const postTitle = document.getElementById("postTitle").value;
+        const postViews = document.getElementById("postViews").value;
+        axios
+          .post(url, {
+            title: postTitle,
+            views: postViews,
+          })
+          .then((response) => {
+            responseElement.innerText = "Success! ";
+          })
+          .catch((error) => {
+            responseElement.innerText = "Fail! ";
+          });
+      }
+
+      function removePost(event) {
+        event.preventDefault();
+
+        const removeId = document.getElementById("removeId").value;
+
+        axios
+          .delete(`${url}/${removeId}`)
+          .then((response) => {
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.error("There was an error!", error);
+          });
+      }
+    </script>
+  </body>
+</html>

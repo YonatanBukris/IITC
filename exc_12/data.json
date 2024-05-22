@@ -1,0 +1,27 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    },
+    {
+      "id": "8057",
+      "title": "new",
+      "views": "100"
+    },
+    {
+      "id": "1627",
+      "title": "Try",
+      "views": "102"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

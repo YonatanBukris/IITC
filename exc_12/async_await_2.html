@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function paues(sleepMs) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("hello");
+          }, sleepMs);
+        });
+      }
+
+      const f1 = () => console.log("f1 called");
+      const f2 = () => console.log("f2 called");
+      const f3 = () => console.log("f3 called");
+
+      async function asyncCall() {
+        await setTimeout(() => {
+          f1();
+        }, 3000);
+
+        await setTimeout(() => {
+          f2();
+        }, 5000);
+
+        await setTimeout(() => {
+          f3();
+        }, 7000);
+      }
+
+      asyncCall();
+    </script>
+  </body>
+</html>
