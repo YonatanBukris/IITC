@@ -1,0 +1,129 @@
+/* App.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  main {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 90%;
+
+  }
+  
+  h1 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+  }
+  
+  p {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    border: none;
+    margin-left: 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+button:hover {
+    background-color: #c82333;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  .todo-wrapper {
+    padding: 0;
+  }
+  
+  .todo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .todo-item {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .todo-item p {
+    margin: 0;
+    flex: 1;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .completed p {
+    text-decoration: line-through;
+    color: #888;
+  }
+
+  .statistics {
+    margin-bottom: 20px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 20px;
+    margin-top: 10px;
+  }
+
+  .progress {
+    height: 100%;
+    background-color: #28a745;
+    transition: width 0.3s;
+  }
+
+  
+ 
+  
