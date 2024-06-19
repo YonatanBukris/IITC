@@ -1,0 +1,57 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.main-nav-bar {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.main-nav-bar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+.main-nav-bar ul li {
+  margin: 0 15px;
+}
+
+.main-nav-bar a {
+  color: gray;  /* Default color for all links */
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.main-nav-bar a:visited {
+  color: rgb(207, 200, 200);  /* Ensures visited links remain gray */
+}
+
+.main-nav-bar .active-nav-text {
+  color:rgb(26, 137, 100) !important;  /* Color for the active link, using !important to override any other styles */
+}
+
+.main-nav-bar a:hover {
+  background-color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .main-nav-bar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-nav-bar ul li {
+    margin: 10px 0;
+  }
+}
