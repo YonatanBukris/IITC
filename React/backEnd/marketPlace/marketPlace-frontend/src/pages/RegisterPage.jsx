@@ -1,18 +1,26 @@
-import React from 'react';
+import axios from "axios";
+import React from "react";
+
 
 function RegisterPage() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const username = event.target.username.value;
-    const password = event.target.password.value;
-    const firstName = event.target.firstName.value;
-    const lastName = event.target.lastName.value;
+  async function handleSubmit(ev) {
+    ev.preventDefault();
+    const formData = new FormData(ev.target);
 
-    console.log('Username:', username);
-    console.log('Password:', password);
-    console.log('First Name:', firstName);
-    console.log('Last Name:', lastName);
-  };
+    const username = formData.get("username");
+    const password = formData.get("password");
+    const firstName = formData.get("firstName");
+    const lastName = formData.get("lastName");
+
+    console.log({ username, password, firstName, lastName }); // Debugging line to check form data
+
+    await api.post("/auth/register", {
+      username,
+      password,
+      firstName,
+      lastName,
+    });
+  }
 
   return (
     <div className="container mx-auto mt-10">

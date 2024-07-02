@@ -3,16 +3,20 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { PRODUCT_BASE_URL } from "../constants/url.constant";
 import { Pencil, Receipt, Trash2 } from "lucide-react";
+import { useUserContext } from "./userProvider";
+import api from "../services/api.service";
 
 function ProductDetailsPage() {
   const { productId } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
+  const { user } = useUserContext();
+
 
   useEffect(() => {
     async function getProduct() {
       try {
-        const response = await axios.get(`${PRODUCT_BASE_URL}/${productId}`);
+        const response = await api.get(`/product/${productId}`);
         setProduct(response.data);
       } catch (error) {
         console.error("Error fetching product:", error);
@@ -22,8 +26,9 @@ function ProductDetailsPage() {
   }, [productId]);
 
   async function handleDelete() {
+    const token = localStorage.getItem("token");
     try {
-      await axios.delete(`${PRODUCT_BASE_URL}/${productId}`);
+      await api.delete(`/product/${productId}`);
       navigate("/product");
     } catch (error) {
       console.error("Error deleting product:", error);
@@ -42,15 +47,20 @@ function ProductDetailsPage() {
             <p className="text-green-600 font-bold">${product.price}</p>
           </div>
           <div className="flex gap-4">
-            <button
-              className="rounded-full bg-gray-100 p-2 hover:bg-gray-200"
-              onClick={handleDelete}
-            >
-              <Trash2 color="red" />
-            </button>
-            <button className="rounded-full bg-gray-100 p-2 hover:bg-gray-200">
-              <Pencil color="orange" />
-            </button>
+          {user && product.user === user._id && (
+              <>
+                <button
+                  className="rounded-full bg-gray-100 p-2 hover:bg-gray-200"
+                  onClick={handleDelete}
+                >
+                  <Trash2 color="red" />
+                </button>
+
+                <button className="rounded-full bg-gray-100 p-2 hover:bg-gray-200">
+                  <Pencil color="orange" />
+                </button>
+              </>
+            )}
           </div>
         </div>
       ) : (

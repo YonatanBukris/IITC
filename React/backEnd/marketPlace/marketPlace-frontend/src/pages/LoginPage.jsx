@@ -1,14 +1,34 @@
 import React from 'react';
+import { formatJWTTokenToUser } from "../utils/formatJWTTokenToUser";
+import { useUserContext } from "./userProvider";
+import axios from 'axios';
+import api from '../services/api.service';
+
+
 
 function LoginPage() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const username = event.target.username.value;
-    const password = event.target.password.value;
+  const { login } = useUserContext();
 
-    console.log('Username:', username);
-    console.log('Password:', password);
-  };
+  async function handleSubmit(ev) {
+    ev.preventDefault();
+    const formData = new FormData(ev.target);
+
+    const username = formData.get("username");
+    const password = formData.get("password");
+    const res = await api.post("/auth/login", {
+      username,
+      password,
+    });
+    const { token } = res.data;
+    localStorage.setItem("token", token);
+
+    const { userId } = formatJWTTokenToUser(token);
+
+    const userInfo = await api.get(`/auth/login/${userId}`);
+
+    login(userInfo.data);
+
+  }
 
   return (
     <div className="container mx-auto mt-10">
